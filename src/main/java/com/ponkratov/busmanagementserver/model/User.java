@@ -1,5 +1,7 @@
 package com.ponkratov.busmanagementserver.model;
 
+import lombok.RequiredArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
