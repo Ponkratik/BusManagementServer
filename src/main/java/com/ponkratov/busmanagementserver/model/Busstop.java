@@ -19,6 +19,12 @@ public class Busstop {
     @Basic
     @Column(name = "intermediate")
     private boolean intermediate;
+    @Basic
+    @Column(name = "latitude")
+    private double latitude;
+    @Basic
+    @Column(name = "longitude")
+    private double longitude;
     @ManyToOne
     @JoinColumn(name = "cityId", referencedColumnName = "cityId", nullable = false)
     private City cityByCityId;
@@ -57,17 +63,33 @@ public class Busstop {
         this.intermediate = intermediate;
     }
 
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Busstop busstop = (Busstop) o;
-        return stopId == busstop.stopId && cityId == busstop.cityId && intermediate == busstop.intermediate && Objects.equals(stopName, busstop.stopName);
+        return stopId == busstop.stopId && cityId == busstop.cityId && intermediate == busstop.intermediate && Double.compare(busstop.latitude, latitude) == 0 && Double.compare(busstop.longitude, longitude) == 0 && Objects.equals(stopName, busstop.stopName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(stopId, stopName, cityId, intermediate);
+        return Objects.hash(stopId, stopName, cityId, intermediate, latitude, longitude);
     }
 
     public City getCityByCityId() {
