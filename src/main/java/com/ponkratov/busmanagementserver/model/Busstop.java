@@ -26,7 +26,7 @@ public class Busstop {
     @Column(name = "longitude")
     private double longitude;
     @ManyToOne
-    @JoinColumn(name = "cityId", referencedColumnName = "cityId", nullable = false)
+    @JoinColumn(name = "cityId", referencedColumnName = "cityId", nullable = false, insertable = false, updatable = false)
     private City cityByCityId;
     @OneToMany(mappedBy = "busstopByStopId")
     private Collection<Routebusstop> routebusstopsByStopId;

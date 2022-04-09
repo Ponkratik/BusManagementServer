@@ -1,5 +1,7 @@
 package com.ponkratov.busmanagementserver.model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
@@ -7,6 +9,8 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -42,7 +46,7 @@ public class User {
     @OneToMany(mappedBy = "userByUserId")
     private Collection<Trip> tripsByUserId;
     @ManyToOne
-    @JoinColumn(name = "roleId", referencedColumnName = "roleId")
+    @JoinColumn(name = "roleId", referencedColumnName = "roleId", nullable = false, insertable = false, updatable = false)
     private Role roleByRoleId;
 
     public long getUserId() {

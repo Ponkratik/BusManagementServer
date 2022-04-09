@@ -26,13 +26,13 @@ public class Trip {
     @Column(name = "price")
     private double price;
     @ManyToOne
-    @JoinColumn(name = "routeId", referencedColumnName = "routeId", nullable = false)
+    @JoinColumn(name = "routeId", referencedColumnName = "routeId", nullable = false, insertable = false, updatable = false)
     private Route routeByRouteId;
     @ManyToOne
-    @JoinColumn(name = "userId", referencedColumnName = "userId", nullable = false)
+    @JoinColumn(name = "userId", referencedColumnName = "userId", nullable = false, insertable = false, updatable = false)
     private User userByUserId;
     @ManyToOne
-    @JoinColumn(name = "busId", referencedColumnName = "busId", nullable = false)
+    @JoinColumn(name = "busId", referencedColumnName = "busId", nullable = false, insertable = false, updatable = false)
     private Bus busByBusId;
 
     public long getTripId() {
