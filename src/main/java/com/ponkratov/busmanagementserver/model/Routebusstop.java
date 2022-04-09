@@ -22,10 +22,10 @@ public class Routebusstop {
     @Column(name = "timeDelta")
     private Time timeDelta;
     @ManyToOne
-    @JoinColumn(name = "routeId", referencedColumnName = "routeId", nullable = false)
+    @JoinColumn(name = "routeId", referencedColumnName = "routeId", nullable = false, insertable = false, updatable = false)
     private Route routeByRouteId;
     @ManyToOne
-    @JoinColumn(name = "stopId", referencedColumnName = "stopId", nullable = false)
+    @JoinColumn(name = "stopId", referencedColumnName = "stopId", nullable = false, insertable = false, updatable = false)
     private Busstop busstopByStopId;
 
     public long getRouteId() {
