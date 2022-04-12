@@ -87,6 +87,9 @@ public class AuthControllerImpl implements AuthController {
             Role r = roleRepository.findByRoleName(role).orElseThrow(() -> new RuntimeException("Error: Role not found"));
             user.setRoleId(r.getRoleId());
         });
+        /*Role r = roleRepository.findByRoleName(signupRequest.getRole()).orElseThrow(() -> new RuntimeException("Error: Role not found"));
+        user.setRoleId(r.getRoleId());*/
+
         userRepository.save(user);
         return ResponseEntity.ok(new MessageResponse("User registred successfully"));
     }
