@@ -1,5 +1,6 @@
 package com.ponkratov.busmanagementserver.payload.request;
 
+import com.ponkratov.busmanagementserver.model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ public class SignupRequest {
     @Email
     private String email;
     private Set<String> role;
+    private Role roleByRoleId;
     //private String role;
     @NotBlank
     @Size(min = 1, max = 40)

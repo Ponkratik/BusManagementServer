@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -47,9 +48,16 @@ public class AuthControllerImpl implements AuthController {
         String jwt = jwtUtils.generateJwtToken(authentication);
 
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        List<String> roles = userDetails.getAuthorities().stream()
+        List<String> rolesStr = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
+
+        List<Role> roles = new ArrayList<>();
+        for (String str: rolesStr) {
+            Role r = new Role();
+            r = roleRepository.findByRoleName(str).get();
+            roles.add(r);
+        }
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getUserId(),
                 userDetails.getUsername(),

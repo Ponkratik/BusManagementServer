@@ -1,5 +1,6 @@
 package com.ponkratov.busmanagementserver.payload.response;
 
+import com.ponkratov.busmanagementserver.model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,5 +20,5 @@ public class JwtResponse {
     private String surName;
     private String phone;
     private boolean blocked;
-    private List<String> roles;
+    private List<Role> roleByRoleId;
 }

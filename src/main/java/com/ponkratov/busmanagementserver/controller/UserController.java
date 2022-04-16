@@ -25,5 +25,5 @@ public interface UserController {
 
     @PutMapping ("/update/{id}")
     @PreAuthorize("hasRole('ROLE_SYSADMIN')")
-    ResponseEntity<?> updateUser(@Valid @RequestBody @PathVariable("id") Long userId, SignupRequest request);
+    ResponseEntity<?> updateUser(@PathVariable("id") Long userId, @Valid @RequestBody SignupRequest request);
 }

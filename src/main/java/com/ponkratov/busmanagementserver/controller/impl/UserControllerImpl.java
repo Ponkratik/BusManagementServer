@@ -69,11 +69,11 @@ public class UserControllerImpl implements UserController {
             tempUser = temp.get();
         }
 
-        if (userRepository.existsByLogin(request.getLogin())) {
+        if (!request.getLogin().equals(tempUser.getLogin()) && userRepository.existsByLogin(request.getLogin())) {
             return ResponseEntity.badRequest().body(new MessageResponse("Error: Username is already taken!"));
         }
 
-        if (userRepository.existsByEmail(request.getEmail())) {
+        if (!request.getEmail().equals(tempUser.getEmail()) && userRepository.existsByEmail(request.getEmail())) {
             return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
         }
 
@@ -85,12 +85,13 @@ public class UserControllerImpl implements UserController {
         tempUser.setSurName(request.getSurName());
         tempUser.setPhone(request.getPhone());
 
-        Set<String> requestRoles = request.getRole();
-        Set<Role> roles = new HashSet<>();
-        requestRoles.forEach(role -> {
-            Role r = roleRepository.findByRoleName(role).orElseThrow(() -> new RuntimeException("Error: Role not found"));
-            tempUser.setRoleId(r.getRoleId());
-        });
+        //Set<String> requestRoles = request.getRoleByRoleId();
+        //Set<Role> roles = new HashSet<>();
+        /*request.getRoleByRoleId().forEach(role -> {
+            //Role r = roleRepository.findByRoleName(role).orElseThrow(() -> new RuntimeException("Error: Role not found"));
+            tempUser.setRoleId(role.getRoleId());
+        });*/
+        tempUser.setRoleId(request.getRoleByRoleId().getRoleId());
 
         userRepository.save(tempUser);
         return new ResponseEntity<>(HttpStatus.OK);
