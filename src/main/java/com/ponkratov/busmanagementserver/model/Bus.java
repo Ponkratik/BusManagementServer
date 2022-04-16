@@ -1,5 +1,7 @@
 package com.ponkratov.busmanagementserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
@@ -22,6 +24,7 @@ public class Bus {
     @Basic
     @Column(name = "VIN")
     private String vin;
+    @JsonIgnore
     @OneToMany(mappedBy = "busByBusId")
     private Collection<Trip> tripsByBusId;
 

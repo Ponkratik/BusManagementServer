@@ -1,5 +1,7 @@
 package com.ponkratov.busmanagementserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
@@ -13,6 +15,7 @@ public class Role {
     @Basic
     @Column(name = "roleName")
     private String roleName;
+    @JsonIgnore
     @OneToMany(mappedBy = "roleByRoleId")
     private Collection<User> usersByRoleId;
 

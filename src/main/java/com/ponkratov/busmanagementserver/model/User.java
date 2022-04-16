@@ -1,5 +1,6 @@
 package com.ponkratov.busmanagementserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -43,8 +44,11 @@ public class User {
     @Basic
     @Column(name = "blocked")
     private boolean blocked;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "userByUserId")
     private Collection<Trip> tripsByUserId;
+
     @ManyToOne
     @JoinColumn(name = "roleId", referencedColumnName = "roleId", nullable = false, insertable = false, updatable = false)
     private Role roleByRoleId;

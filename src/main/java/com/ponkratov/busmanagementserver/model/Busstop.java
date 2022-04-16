@@ -1,5 +1,7 @@
 package com.ponkratov.busmanagementserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
@@ -25,9 +27,11 @@ public class Busstop {
     @Basic
     @Column(name = "longitude")
     private double longitude;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "cityId", referencedColumnName = "cityId", nullable = false, insertable = false, updatable = false)
     private City cityByCityId;
+    @JsonIgnore
     @OneToMany(mappedBy = "busstopByStopId")
     private Collection<Routebusstop> routebusstopsByStopId;
 

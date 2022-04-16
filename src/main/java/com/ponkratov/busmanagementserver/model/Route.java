@@ -1,5 +1,7 @@
 package com.ponkratov.busmanagementserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
@@ -13,8 +15,10 @@ public class Route {
     @Basic
     @Column(name = "routeName")
     private String routeName;
+    @JsonIgnore
     @OneToMany(mappedBy = "routeByRouteId")
     private Collection<Routebusstop> routebusstopsByRouteId;
+    @JsonIgnore
     @OneToMany(mappedBy = "routeByRouteId")
     private Collection<Trip> tripsByRouteId;
 

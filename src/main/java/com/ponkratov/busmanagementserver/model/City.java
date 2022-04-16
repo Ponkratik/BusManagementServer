@@ -1,5 +1,7 @@
 package com.ponkratov.busmanagementserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
@@ -13,6 +15,7 @@ public class City {
     @Basic
     @Column(name = "cityName")
     private String cityName;
+    @JsonIgnore
     @OneToMany(mappedBy = "cityByCityId")
     private Collection<Busstop> busstopsByCityId;
 

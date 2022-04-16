@@ -1,5 +1,7 @@
 package com.ponkratov.busmanagementserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.Objects;
@@ -21,9 +23,11 @@ public class Routebusstop {
     @Basic
     @Column(name = "timeDelta")
     private Time timeDelta;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "routeId", referencedColumnName = "routeId", nullable = false, insertable = false, updatable = false)
     private Route routeByRouteId;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "stopId", referencedColumnName = "stopId", nullable = false, insertable = false, updatable = false)
     private Busstop busstopByStopId;
