@@ -79,6 +79,6 @@ public class BusControllerImpl implements BusController {
         bus.setBusId(id);
 
         busRepository.save(bus);
-        return new ResponseEntity<>(new MessageResponse("Bus added successfully"), HttpStatus.OK);
+        return new ResponseEntity<>(new MessageResponse("Информация об автобусе обновлена успешно"), HttpStatus.OK);
     }
 }
