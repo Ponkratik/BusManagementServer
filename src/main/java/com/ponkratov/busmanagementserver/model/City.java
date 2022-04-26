@@ -1,12 +1,16 @@
 package com.ponkratov.busmanagementserver.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
 
 @Entity
+@Getter
+@Setter
 public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -15,25 +19,6 @@ public class City {
     @Basic
     @Column(name = "cityName")
     private String cityName;
-    @JsonIgnore
-    @OneToMany(mappedBy = "cityByCityId")
-    private Collection<Busstop> busstopsByCityId;
-
-    public long getCityId() {
-        return cityId;
-    }
-
-    public void setCityId(long cityId) {
-        this.cityId = cityId;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -46,13 +31,5 @@ public class City {
     @Override
     public int hashCode() {
         return Objects.hash(cityId, cityName);
-    }
-
-    public Collection<Busstop> getBusstopsByCityId() {
-        return busstopsByCityId;
-    }
-
-    public void setBusstopsByCityId(Collection<Busstop> busstopsByCityId) {
-        this.busstopsByCityId = busstopsByCityId;
     }
 }
