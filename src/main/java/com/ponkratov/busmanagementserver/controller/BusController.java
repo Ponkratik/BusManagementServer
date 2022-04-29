@@ -13,22 +13,22 @@ import javax.validation.Valid;
 public interface BusController {
 
     @GetMapping("/get/all")
-    @PreAuthorize("hasRole('ROLE_GARAGEMANAGER')")
+    //@PreAuthorize("hasRole('ROLE_GARAGEMANAGER')")
     ResponseEntity<?> getAllBuses();
 
     @GetMapping("/get/{id}")
-    @PreAuthorize("hasRole('ROLE_GARAGEMANAGER')")
+    //@PreAuthorize("hasRole('ROLE_GARAGEMANAGER')")
     ResponseEntity<?> getBusById(@PathVariable Long id);
 
     @DeleteMapping("/delete/{id}")
-    @PreAuthorize("hasRole('ROLE_GARAGEMANAGER')")
+    //@PreAuthorize("hasRole('ROLE_GARAGEMANAGER')")
     ResponseEntity<?> deleteBus(@PathVariable Long id);
 
     @PostMapping("/add")
-    @PreAuthorize("hasRole('ROLE_GARAGEMANAGER')")
+    //@PreAuthorize("hasRole('ROLE_GARAGEMANAGER')")
     ResponseEntity<?> addBus(@Valid @RequestBody Bus bus);
 
     @PutMapping("/update/{id}")
-    @PreAuthorize("hasRole('ROLE_GARAGEMANAGER')")
+    //@PreAuthorize("hasRole('ROLE_GARAGEMANAGER')")
     ResponseEntity<?> updateBus(@PathVariable Long id, @Valid @RequestBody Bus bus);
 }
