@@ -47,7 +47,7 @@ public class BusControllerImpl implements BusController {
     @Override
     public ResponseEntity<?> addBus(Bus bus) {
         if (busRepository.existsBusByNumber(bus.getNumber())) {
-            return new ResponseEntity<>(new MessageResponse("Bus with this number exists"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new MessageResponse("Автобус с таким VIN-кодом уже существует"), HttpStatus.BAD_REQUEST);
         }
 
         if (busRepository.existsBusByVin(bus.getVin())) {
@@ -69,7 +69,7 @@ public class BusControllerImpl implements BusController {
         }
 
         if (!bus.getNumber().equals(tempBus.getNumber()) && busRepository.existsBusByNumber(bus.getNumber())) {
-            return new ResponseEntity<>(new MessageResponse("Bus with this number exists"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new MessageResponse("Автобус с таким VIN-кодом уже существует"), HttpStatus.BAD_REQUEST);
         }
 
         if (!bus.getVin().equals(tempBus.getVin()) && busRepository.existsBusByVin(bus.getVin())) {

@@ -65,6 +65,7 @@ public class AuthControllerImpl implements AuthController {
                 userDetails.getFirstName(),
                 userDetails.getSurName(),
                 userDetails.getPhone(),
+                userDetails.getEmail(),
                 userDetails.isAccountNonLocked(),
                 roles));
     }

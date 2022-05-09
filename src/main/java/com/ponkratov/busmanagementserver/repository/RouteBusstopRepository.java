@@ -1,6 +1,5 @@
 package com.ponkratov.busmanagementserver.repository;
 
-import com.ponkratov.busmanagementserver.model.Route;
 import com.ponkratov.busmanagementserver.model.Routebusstop;
 import com.ponkratov.busmanagementserver.model.RoutebusstopPK;
 import org.springframework.data.jpa.repository.JpaRepository;

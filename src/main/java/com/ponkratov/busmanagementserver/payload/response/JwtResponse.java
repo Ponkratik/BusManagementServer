@@ -19,6 +19,7 @@ public class JwtResponse {
     private String firstName;
     private String surName;
     private String phone;
+    private String email;
     private boolean blocked;
     private List<Role> roleByRoleId;
 }

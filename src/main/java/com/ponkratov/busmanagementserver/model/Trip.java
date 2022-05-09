@@ -1,13 +1,10 @@
 package com.ponkratov.busmanagementserver.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.sql.Time;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -20,7 +17,7 @@ public class Trip {
     private long tripId;
     @Basic
     @Column(name = "depTime")
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date depTime;
     @Basic
     @Column(name = "price")

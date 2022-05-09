@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -25,7 +26,7 @@ public class Routebusstop {
     private long order;
     @Basic
     @Column(name = "timeDelta")
-    private Time timeDelta;
+    private Date timeDelta;
 
     @ManyToOne
     @JoinColumn(name = "routeId", referencedColumnName = "routeId", nullable = false, insertable = false, updatable = false)

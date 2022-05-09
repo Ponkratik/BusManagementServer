@@ -2,6 +2,9 @@ package com.ponkratov.busmanagementserver.security.services;
 
 import com.ponkratov.busmanagementserver.model.User;
 import com.ponkratov.busmanagementserver.repository.UserRepository;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

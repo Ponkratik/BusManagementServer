@@ -4,6 +4,7 @@ import com.ponkratov.busmanagementserver.security.jwt.AuthEntryPointJwt;
 import com.ponkratov.busmanagementserver.security.jwt.AuthTokenFilter;
 import com.ponkratov.busmanagementserver.security.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
